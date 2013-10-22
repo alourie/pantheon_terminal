@@ -89,3 +89,13 @@ class TerminalWindowTests(TerminalAutopilotTestCase):
         # test number of tabs(containers) equals 2
         tabs = self.app.select_many('OsThumb')
         self.assertThat(len(tabs), Equals(2))
+
+    def test_ctrl_d_to_close_tab(self):
+        # open couple of tabs
+        for x in range(5):
+            self.keyboard.press_and_release('Ctrl+Shift+t')
+        for x in range(1,4):
+            self.keyboard.press_and_release('Ctrl+d')
+            new_tabs = self.app.select_many('OsThumb')
+            self.assertThat(len(new_tabs), Equals(6  - x))
+        
