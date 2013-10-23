@@ -92,7 +92,7 @@ class TerminalWindowTests(TerminalAutopilotTestCase):
 
     def test_ctrl_d_to_close_tab(self):
         # open couple of tabs
-        for x in range(5):
+        for x in range(1,5):
             self.keyboard.press_and_release('Ctrl+Shift+t')
         for x in range(1,4):
             self.keyboard.press_and_release('Ctrl+d')
